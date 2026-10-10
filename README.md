@@ -32,3 +32,60 @@ NOTE: Only sniffing traffic on my network interface was carried out for this pro
 - Kali Linux
 - VirtualBox
 - Wireshark
+
+---
+## METHODOLOGY
+---
+
+```text
+Network Interface
+       ↓
+Scapy Packet Capture
+       ↓
+Python Callback
+       ↓
+Protocol Identification
+       ↓
+Packet Analysis
+       ↓   
+Wireshark Verification
+````
+---
+### IMPLEMENTATION
+---
+
+#### Network Interface
+---
+
+<p align="center">
+  <img src="Netwrk Intface.png"
+      alt="Network Interface"
+      width="800">
+</p>
+
+```text
+ip addr
+```
+---
+
+### Scapy Packet Structure
+---
+
+<p align="center">
+  <img src="packet structure.png"
+      alt="Scapy Packet"
+      width="800">
+</p>
+
+```text
+sudo scapy
+```
+---
+
+### Python Source code 
+---
+
+```text
+src="sniffer.py"
+```
+
