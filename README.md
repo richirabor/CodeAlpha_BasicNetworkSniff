@@ -142,3 +142,90 @@ Protocol:        ICMP
 ```
 
 The addresses and timestamps above are illustrative. Actual output will depend on the captured traffic.
+
+---
+## PACKET ANALYSIS
+---
+| Field     | Description |
+|--------   |-----------  |
+| Source IP | IP address of the packet sender |
+| Destination IP | IP address of the intended recipient |
+| Protocol | Protocol identified in the packet, such as TCP, UDP, or ICMP |
+| Source Port | Port associated with the sending endpoint |
+| Destination Port | Port associated with the receiving endpoint |
+| TCP Flags | Indicators of TCP connection and control operations |
+| Payload | Data carried by the packet, which may be binary or encrypted |
+| MAC Address | Hardware address used at the local network layer |
+
+---
+### Common protocols
+---
+- *TCP:* Reliable, connection-oriented transport.
+- *UDP:* Connectionless transport used by services including many DNS queries.
+- *ICMP:* Network diagnostic and error-reporting messages, including ping.
+- *DNS:* Translates domain names into information such as IP addresses.
+- *ARP:* Resolves IPv4 addresses to link-layer addresses on a local network.
+
+---
+## TESTING PROCEDURE
+---
+1. Start the Python sniffer.
+2. Generate ICMP traffic with ping.
+3. Generate DNS traffic with nslookup.
+4. Generate HTTPS traffic with curl.
+5. Observe the packet addresses, protocols, and ports.
+6. If available, save a packet capture and inspect it with Wireshark.
+7. Record actual observations and screenshots for the project report.
+
+---
+## SECURITY AND ETHICAL CONSIDERATIONS
+---
+Packet capture must only be performed on networks and devices that you own or are explicitly authorized to monitor. Captured traffic may contain sensitive information.
+
+HTTPS/TLS encrypts application data, so a basic packet sniffer generally cannot read protected website content directly. Metadata such as IP addresses, ports, packet lengths, and timing may still be visible. Do not treat payload previews as proof that encrypted data has been decrypted.
+
+Avoid committing PCAP files, credentials, tokens, personal information, or other sensitive traffic to a public repository. Use a controlled lab environment and sanitize screenshots before publishing them.
+
+---
+## LIMITATIONS
+---
+- Packet visibility depends on the selected interface and network configuration.
+- Elevated privileges may be required.
+- VirtualBox networking mode can affect which packets are visible.
+- Encrypted application payloads are generally unreadable without authorized decryption and the necessary keys.
+- The program is a learning tool, not a full-featured intrusion detection system.
+
+---
+## FUTURE IMPROVEMENTS
+---
+- Add command-line interface and protocol filters.
+- Export packet summaries to CSV.
+- Add packet counters and protocol statistics.
+- Implement configurable capture limits and interface selection.
+- Improve payload handling and output formatting.
+- Integrate with Wireshark-compatible PCAP analysis workflows.
+
+---
+## LEARNING OUTCOMES
+---
+This project provides practical experience with Python, Scapy, packet capture, IP addressing, TCP/UDP ports, ICMP, DNS, packet layers, and basic network troubleshooting.
+
+---
+## CONCLUSION
+---
+The Basic Network Sniffer demonstrates how Python and Scapy can capture and inspect network traffic in an authorized environment. By examining packet headers and protocol information, the project helps explain how devices communicate and how different networking protocols operate. Optional PCAP analysis with Wireshark provides a more detailed view of packet structure.
+
+---
+## 👤 Author
+---
+
+Irabor Richard Ehis
+
+CA/DF1/316051
+
+LinkedIn: https://www.linkedin.com/in/richard-ehis-irabor-46b8899b/
+
+---
+## 📌 Project Information
+
+Program Name: Cybersecurity at CodeAlpha | Project: Basic Network Sniffer using Python and Scapy | Repository: GitHub
