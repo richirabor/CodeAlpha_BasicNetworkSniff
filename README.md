@@ -1,25 +1,22 @@
 # codealpha_BasicNetworkSniff
 # PROJECT TITLE: Implementation of a Basic Network Sniffer using Python and Scapy
 ---
-## INTRODUCTION:
-For a basic network sniffer practical, this involves the development 
-of a Python-based packet sniffer to observe the network traffic and 
-understand the fundamental networking protocols such as TCP, UDP, ICMP, IP, and DNS. 
+## PROJECT OVERVIEW:
+The Basic Network Sniffer is a Python-based networking project that captures and analyzes network packets using the Scapy library. It displays useful packet information, including source and destination IP addresses, protocols, port numbers, TCP flags, and selected payload data when available.
 
-The purpose is to capture the network packets, analyze the structure, 
-and identify the communication protocols and useful information 
-from the captured traffic. 
+This project demonstrates fundamental networking concepts, packet inspection, and protocol analysis in a controlled and authorized lab environment.
 
 ---
 ## OBJECTIVES:
 The task is to build a Python program that:
 
-- Captures Live network packets.
-- Identifies Source and Destination IP addresses.
-- Identifies protocols such as TCP, UDP, ICMP, DNS, and ARP.
-- Displays useful packet information.
-- Examines packet structure and selected payload data.
-- Demonstrates how information flows between network devices.
+- Capture live network packets using Python.
+- Identify source and destination IP addresses.
+- Recognize TCP, UDP, ICMP, DNS, and ARP traffic where applicable.
+- Display port numbers and TCP flags.
+- Inspect limited payload information when available.
+- Understand packet structure and network communication.
+- Practice responsible network monitoring.
 
 NOTE: Only sniffing traffic on my network interface was carried out for this project test.
 
@@ -30,11 +27,11 @@ NOTE: Only sniffing traffic on my network interface was carried out for this pro
 - Python 3
 - Scapy
 - Kali Linux
-- VirtualBox
-- Wireshark
+- VirtualBox (optional)
+- Wireshark (optional for detailed packet analysis)
 
 ---
-## METHODOLOGY
+## STRUCTURE
 ---
 
 ```text
@@ -50,6 +47,14 @@ Packet Analysis
        ↓   
 Wireshark Verification
 ````
+---
+## REQUIREMENTS
+
+- Python 3 installed.
+- Scapy installed.
+- An active network interface.
+- Appropriate privileges for packet capture.
+
 ---
 ### IMPLEMENTATION
 ---
@@ -81,11 +86,59 @@ ip addr
 sudo scapy
 ```
 ---
-
-### Python Source code 
+## HOW TO RUN THE PROGRAM
 ---
+Run the sniffer with the appropriate privileges:
 
-```text
-src="sniffer.py"
+<p align="center">
+  <img src="ICMP Capture.png"
+      alt="ICMP Capture"
+      width="800">
+</p>
+
+```bash
+sudo python3 sniffer.py
+```
+The program begins capturing packets and displays information as packets are observed. Press Ctrl+C to stop the capture.
+
+Generate test traffic in a second terminal:
+
+```bash
+ping -c 4 8.8.8.8
+nslookup example.com
+curl https://example.com
 ```
 
+These commands generate ICMP, DNS, ARP, and TCP/TLS-related traffic when the network and DNS configuration permit them. Actual results depend on the network environment.
+
+---
+## FEATURES
+---
+- Live packet capture.
+- Source and destination IP identification.
+- TCP, UDP, and ICMP protocol recognition.
+- ARP address information.
+- TCP and UDP port inspection.
+- TCP flag inspection.
+- DNS packet identification.
+- Limited payload preview for packets containing a raw payload layer.
+- Optional PCAP export for further analysis in Wireshark.
+
+---
+## OUTPUT SAMPLE
+----
+```text
+==============================================
+       BASIC PYTHON NETWORK SNIFFER
+==============================================
+Starting packet capture...
+Press CTRL+C to stop.
+
+======================================================================
+Time: 07:00:29
+Source IP:       10.0.2.15
+Destination IP:  8.8.8.8
+Protocol:        ICMP
+```
+
+The addresses and timestamps above are illustrative. Actual output will depend on the captured traffic.
