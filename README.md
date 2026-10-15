@@ -63,7 +63,7 @@ Wireshark Verification
 ---
 
 <p align="center">
-  <img src="Netwrk Intface.png"
+  <img src="packet/Netwrk Intface.png"
       alt="Network Interface"
       width="800">
 </p>
@@ -77,7 +77,7 @@ ip addr
 ---
 
 <p align="center">
-  <img src="packet structure.png"
+  <img src="packet/packet structure.png"
       alt="Scapy Packet"
       width="800">
 </p>
@@ -91,7 +91,7 @@ sudo scapy
 Run the sniffer with the appropriate privileges:
 
 <p align="center">
-  <img src="ICMP Capture.png"
+  <img src="packet/ICMP Capture.png"
       alt="ICMP Capture"
       width="800">
 </p>
